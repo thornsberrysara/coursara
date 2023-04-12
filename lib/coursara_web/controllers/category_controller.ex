@@ -5,9 +5,9 @@ defmodule CoursaraWeb.CategoryController do
   alias Coursara.Categories.Category
 
   def index(conn, _params) do
-    categories = Categories.list_categories()
-    render(conn, "index.html", categories: categories)
-  end
+  categories = Coursara.Categories.Category.list_values()
+  render(conn, "index.html", categories: categories)
+end
 
   def new(conn, _params) do
     changeset = Categories.change_category(%Category{})
